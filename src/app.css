@@ -1,0 +1,139 @@
+:root {
+  /* Primary Colors - Professional & Trustworthy */
+  --color-primary: #0A3D7A;
+  --color-primary-light: #1E5A99;
+  --color-primary-dark: #072B56;
+  
+  /* Backgrounds - Clean & Bright */
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F8F9FB;
+  --color-bg-tertiary: #F7FAFC;
+  
+  /* Text Colors - Readable */
+  --color-text-primary: #1A1D29;
+  --color-text-secondary: #4A5568;
+  --color-text-tertiary: #718096;
+  
+  /* Borders & Dividers */
+  --color-border: #E2E8F0;
+  --color-border-dark: #CBD5E0;
+  
+  /* Semantic Colors */
+  --color-success: #059669;
+  --color-warning: #D97706;
+  --color-error: #DC2626;
+  --color-info: #0284C7;
+  
+  /* Legacy support (to be phased out) */
+  --color-titanio-blue: #0A3D7A;
+  --color-electric-blue: #0284C7;
+  --color-safety-red: #DC2626;
+  --color-high-gloss-white: #FFFFFF;
+  --color-chrome-silver-light: #E2E8F0;
+  --color-chrome-silver-dark: #CBD5E0;
+  --color-jet-black: #1A1D29;
+  --color-deep-graphite-gray: #F8F9FB;
+
+  /* Border Radius - Subtle & Professional */
+  --radius-sm: 4px;
+  --radius-button: 6px;
+  --radius-card: 8px;
+  --radius-lg: 12px;
+
+  /* Shadows - Subtle & Refined */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-focus: 0 0 0 3px rgba(10, 61, 122, 0.1);
+  
+  /* Legacy */
+  --shadow-chrome-glow: var(--shadow-focus);
+
+  /* Typography - Clean & Professional */
+  --font-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Spacing Scale (8px base) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--color-primary-light);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border-radius: var(--radius-button);
+  border: none;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  background: var(--color-primary);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+button:hover {
+  background: var(--color-primary-dark);
+  box-shadow: var(--shadow-hover);
+}
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* SVG Fix - Prevent icons from getting cut off */
+svg {
+  overflow: visible;
+}
+
+/* Always use light theme for professional appearance */
