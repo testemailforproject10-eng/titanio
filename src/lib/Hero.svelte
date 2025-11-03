@@ -113,12 +113,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 70%;
     height: 100%;
     background: linear-gradient(
       to right,
       rgba(10, 61, 122, 0.97) 0%,
-      rgba(10, 61, 122, 0.95) 70%,
+      rgba(10, 61, 122, 0.95) 40%,
+      rgba(10, 61, 122, 0.6) 60%,
+      rgba(10, 61, 122, 0.2) 80%,
       rgba(10, 61, 122, 0) 100%
     );
     z-index: 1;
@@ -129,9 +131,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
+    width: 70%;
     height: 100%;
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+    box-shadow: none;
     z-index: 2;
   }
   
@@ -262,7 +264,7 @@
     
     .hero__overlay,
     .hero__overlay-gradient {
-      width: 55%;
+      width: 75%;
     }
   }
   
@@ -272,35 +274,34 @@
     }
     
     .hero__container {
-      flex-direction: column;
+      flex-direction: row;
       justify-content: flex-start;
-      padding: var(--space-3xl) var(--space-lg) var(--space-2xl);
+      align-items: center;
+      padding: 0;
     }
     
     .hero__content {
-      width: 100%;
-      max-width: 100%;
-      padding: var(--space-2xl) var(--space-xl);
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      width: 65%;
+      max-width: none;
+      padding: var(--space-2xl) var(--space-lg);
+      background: transparent;
     }
     
     .hero__overlay {
-      width: 100%;
+      width: 85%;
       height: 100%;
       background: linear-gradient(
-        to bottom,
-        rgba(10, 61, 122, 0.3) 0%,
-        rgba(10, 61, 122, 0.5) 50%,
-        rgba(10, 61, 122, 0.7) 100%
+        to right,
+        rgba(10, 61, 122, 0.97) 0%,
+        rgba(10, 61, 122, 0.95) 40%,
+        rgba(10, 61, 122, 0.6) 60%,
+        rgba(10, 61, 122, 0.2) 80%,
+        rgba(10, 61, 122, 0) 100%
       );
     }
     
     .hero__overlay-gradient {
-      width: 100%;
+      width: 85%;
       box-shadow: none;
     }
     
@@ -331,16 +332,32 @@
     }
     
     .hero__content {
-      padding: var(--space-xl) var(--space-lg);
-      background: rgba(255, 255, 255, 0.12);
+      width: 70%;
+      padding: var(--space-xl) var(--space-md);
+    }
+    
+    .hero__overlay {
+      width: 90%;
+      background: linear-gradient(
+        to right,
+        rgba(10, 61, 122, 0.97) 0%,
+        rgba(10, 61, 122, 0.95) 35%,
+        rgba(10, 61, 122, 0.6) 55%,
+        rgba(10, 61, 122, 0.3) 75%,
+        rgba(10, 61, 122, 0) 100%
+      );
+    }
+    
+    .hero__overlay-gradient {
+      width: 90%;
     }
     
     .hero__title {
-      font-size: 2rem;
+      font-size: 1.75rem;
     }
     
     .hero__tagline {
-      font-size: 1rem;
+      font-size: 0.9375rem;
     }
     
     .hero__features {

@@ -1,5 +1,6 @@
 <script>
   import Header from '../lib/Header.svelte'
+  import PhoneBanner from '../lib/PhoneBanner.svelte'
   import Hero from '../lib/Hero.svelte'
   import BrandsGrid from '../lib/BrandsGrid.svelte'
   import ProductCategoriesPreview from '../lib/ProductCategoriesPreview.svelte'
@@ -93,6 +94,7 @@
 
 <div class="home-page">
   <Header {contact} />
+  <PhoneBanner phone={contact.phone} />
   
   <main>
     <Hero features={heroFeatures} />

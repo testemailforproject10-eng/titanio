@@ -143,6 +143,12 @@
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: var(--space-lg);
     }
+    
+    /* Remove grayscale on mobile - no hover states on touch devices */
+    .brand-logo {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
   }
   
   @media (max-width: 640px) {
