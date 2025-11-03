@@ -5,4 +5,7 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 export default defineConfig({
   plugins: [svelte()],
   base: './', // Use relative paths for GitHub Pages
+  build: {
+    outDir: 'docs' // Output to docs/ folder for GitHub Pages
+  }
 })
