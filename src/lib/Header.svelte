@@ -49,7 +49,7 @@
     <div class="header__inner">
       <div class="logo">
         <a href="/" use:link>
-          <img src="/logo.jpeg" alt="Titanio Automotive Supplies" class="logo__img" />
+          <img src="./logo.jpeg" alt="Titanio Automotive Supplies" class="logo__img" />
         </a>
       </div>
       

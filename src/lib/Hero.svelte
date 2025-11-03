@@ -54,7 +54,7 @@
     
     <div class="hero__visual">
       <div class="hero-logo">
-        <img src="/logo.jpeg" alt="Titanio Automotive Supplies" class="hero-logo__img" />
+        <img src="./logo.jpeg" alt="Titanio Automotive Supplies" class="hero-logo__img" />
       </div>
     </div>
   </div>

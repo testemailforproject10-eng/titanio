@@ -48,7 +48,7 @@
     <div class="footer__inner">
       <div class="footer__brand">
         <div class="logo">
-          <img src="/logo.jpeg" alt="Titanio Automotive Supplies" class="logo__img" />
+          <img src="./logo.jpeg" alt="Titanio Automotive Supplies" class="logo__img" />
         </div>
         <p class="tagline">Engineered for Quality<br>Manufactured for Shine</p>
         
