@@ -62,8 +62,7 @@ social: {
 ```javascript
 const heroFeatures = [
   { text: 'Free Shipping $150+', icon: 'check' },
-  { text: 'Same-Day Shipping', icon: 'check' },
-  { text: 'Net 30 Terms Available', icon: 'check' }
+  { text: 'Same-Day Shipping', icon: 'check' }
 ]
 ```
 
