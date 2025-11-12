@@ -94,7 +94,7 @@
 
 <div class="home-page">
   <Header {contact} />
-  <PhoneBanner phone={contact.phone} />
+  <PhoneBanner phone={contact.phone} address={contact.address} />
   
   <main>
     <Hero features={heroFeatures} />

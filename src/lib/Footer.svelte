@@ -3,7 +3,8 @@
   export let contact = {
     phone: '(555) 123-4567',
     email: 'sales@titanioauto.com',
-    hours: 'Mon-Fri: 8am-6pm EST'
+    hours: 'Mon-Fri: 8am-6pm EST',
+    address: '123 Main Street, City, State 12345'
   }
   
   // Social media links - update with your URLs
@@ -13,6 +14,9 @@
     linkedin: 'https://linkedin.com',
     youtube: 'https://youtube.com'
   }
+  
+  // Create Google Maps URL that opens app on mobile
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(contact.address)}`
 </script>
 
 <footer class="footer">
@@ -47,6 +51,23 @@
               <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>{contact.hours}</span>
+          </div>
+          
+          <div class="contact__item contact__item--address">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div class="address-content">
+              <span class="address-text">{contact.address}</span>
+              <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="directions-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Get Directions
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -153,7 +174,7 @@
   
   .contact__item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: var(--space-sm);
     color: #CBD5E0;
     font-size: 0.9375rem;
@@ -164,11 +185,61 @@
   .contact__item svg {
     flex-shrink: 0;
     color: var(--color-primary);
+    margin-top: 0.125rem;
   }
   
   .contact__item--phone:hover,
   .contact__item--email:hover {
     color: #FFFFFF;
+  }
+  
+  .contact__item--address {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .address-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .address-text {
+    color: #CBD5E0;
+    line-height: 1.5;
+  }
+  
+  .directions-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.875rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: var(--radius-button);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(10, 61, 122, 0.3);
+    margin-top: 0.25rem;
+  }
+  
+  .directions-btn:hover {
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+    box-shadow: 0 4px 12px rgba(10, 61, 122, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .directions-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(10, 61, 122, 0.3);
+  }
+  
+  .directions-btn svg {
+    width: 16px;
+    height: 16px;
+    color: currentColor;
   }
   
   /* Social & Trust */
