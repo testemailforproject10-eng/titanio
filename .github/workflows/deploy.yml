@@ -41,5 +41,3 @@ jobs:
           git add docs
           git diff --staged --quiet || git commit -m "Auto-deploy: Update GitHub Pages [skip ci]"
           git push
-
-
