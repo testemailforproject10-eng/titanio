@@ -1,6 +1,8 @@
 // Customer-facing pages
 import Home from './pages/Home.svelte'
 import Shop from './pages/Shop.svelte'
+import Products from './pages/Products.svelte'
+import Gallery from './pages/Gallery.svelte'
 import Solutions from './pages/Solutions.svelte'
 import Resources from './pages/Resources.svelte'
 import Support from './pages/Support.svelte'
@@ -24,6 +26,8 @@ export const routes = {
   '/shop': Shop,
   '/shop/:category': Shop,
   '/shop/:category/:subcategory': Shop,
+  '/products': Products,
+  '/gallery': Gallery,
   '/solutions': Solutions,
   '/solutions/:segment': Solutions,
   '/resources': Resources,

@@ -2,72 +2,83 @@
   import { link } from 'svelte-spa-router'
   import { onMount } from 'svelte'
   
-  export let title = 'Professional Automotive Supplies for Body Shops & Detailers'
-  export let tagline = 'Engineered for Quality & Manufactured for Shine'
+  export let title = 'Welcome to Titanio Automotive Supplies'
+  export let tagline = 'Your trusted store for high-quality car paints and detailing supplies at friendly prices'
   
   // Features data - easily update these!
   export let features = [
-    { text: 'Free Shipping $150+', icon: 'check' },
-    { text: 'Same-Day Shipping', icon: 'check' }
+    { text: 'Brand-name detailing products for professional-looking results', icon: 'check' },
+    { text: 'OEM color-matched paints for all makes and models', icon: 'check' },
+    { text: 'Easy-to-use touch-up kits, sprays, and finishes', icon: 'check' }
+  ]
+  
+  // Product logos for rotating carousel - add more here!
+  const productLogos = [
+    './bannerLogos/3DCompound.png',
+    // Add more product images here as you get them
   ]
   
   let scrollY = 0
+  let currentLogoIndex = 0
   
   onMount(() => {
     const handleScroll = () => {
       scrollY = window.scrollY
     }
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    
+    // Auto-rotate product logos every 4 seconds
+    const rotateInterval = setInterval(() => {
+      currentLogoIndex = (currentLogoIndex + 1) % productLogos.length
+    }, 4000)
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      clearInterval(rotateInterval)
+    }
   })
 </script>
 
 <section class="hero" style="--scroll-offset: {scrollY * 0.5}px">
-  <!-- Background Image with Overlay -->
+  <!-- Background Image with Light Blur -->
   <div class="hero__background">
-    <img src="./hero-banner.jpg" alt="" class="hero__bg-image" />
+    <img src="./hero-banner.jpg?v=2" alt="" class="hero__bg-image" />
     <div class="hero__overlay"></div>
-    <div class="hero__overlay-gradient"></div>
   </div>
   
-  <!-- Content -->
+  <!-- Centered Content - NO CARD -->
   <div class="hero__container">
     <div class="hero__content">
-      <!-- <div class="hero__badge">
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" fill="currentColor"/>
-        </svg>
-        Trusted by 5,000+ Body Shops Nationwide
-      </div> -->
-      
       <h1 class="hero__title">{title}</h1>
       <p class="hero__tagline">{tagline}</p>
       
-       <!-- <div class="hero__ctas">
-        <a class="cta cta--primary" href="/shop" use:link>
-          Shop All Products
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M5 10h10m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a class="cta cta--secondary" href="/b2b/quote" use:link>
-          Request B2B Quote
-        </a>
-      </div> -->
-        
-        <div class="hero__features">
-          {#each features as feature}
-            <div class="feature">
-              <div class="feature__icon">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <span>{feature.text}</span>
+      <div class="hero__features">
+        {#each features as feature}
+          <div class="feature">
+            <div class="feature__icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
-          {/each}
-        </div>
+            <span>{feature.text}</span>
+          </div>
+        {/each}
+      </div>
     </div>
+    
+    <!-- Rotating Product Logo - Bottom Center -->
+    {#if productLogos.length > 0}
+      <div class="hero__product-showcase">
+        {#each productLogos as logo, index}
+          <img 
+            src={logo} 
+            alt="Featured Product" 
+            class="hero__product-logo" 
+            class:active={index === currentLogoIndex}
+          />
+        {/each}
+      </div>
+    {/if}
     
     <!-- Scroll indicator -->
     <div class="hero__scroll-indicator">
@@ -82,14 +93,14 @@
 <style>
   .hero {
     position: relative;
-    min-height: 700px;
+    min-height: 750px;
     display: flex;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  /* Background Image with Parallax Effect */
+  /* Background Image - Light Blur */
   .hero__background {
     position: absolute;
     top: 0;
@@ -104,54 +115,48 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transform: translateY(var(--scroll-offset));
+    transform: translateY(var(--scroll-offset)) scale(1.05);
+    filter: blur(3px) brightness(0.7);
     will-change: transform;
   }
   
-  /* Clean overlay only on left content area */
+  /* Simple dark overlay for text readability */
   .hero__overlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 70%;
+    width: 100%;
     height: 100%;
     background: linear-gradient(
-      to right,
-      rgba(10, 61, 122, 0.97) 0%,
-      rgba(10, 61, 122, 0.95) 40%,
-      rgba(10, 61, 122, 0.6) 60%,
-      rgba(10, 61, 122, 0.2) 80%,
-      rgba(10, 61, 122, 0) 100%
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.5) 100%
     );
     z-index: 1;
   }
   
-  /* Subtle shadow to separate content from image */
-  .hero__overlay-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 70%;
-    height: 100%;
-    box-shadow: none;
-    z-index: 2;
-  }
-  
-  /* Content Container - Split Layout */
+  /* Content Container */
   .hero__container {
     position: relative;
-    z-index: 3;
+    z-index: 2;
     width: 100%;
-    height: 100%;
+    max-width: 1400px;
+    padding: var(--space-3xl) var(--space-lg);
     display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    min-height: 750px;
   }
   
+  /* Simple Centered Content - NO CARD */
   .hero__content {
-    width: 50%;
-    max-width: 650px;
-    padding: var(--space-4xl) var(--space-3xl);
+    text-align: center;
+    max-width: 1000px;
+    width: 100%;
     animation: fadeInUp 0.8s ease-out;
+    margin-top: var(--space-4xl);
   }
   
   @keyframes fadeInUp {
@@ -165,106 +170,148 @@
     }
   }
   
-  /* Title */
+  /* Title - Clean & Bold */
   .hero__title {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.15;
-    margin: 0 0 var(--space-lg) 0;
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin: 0 0 var(--space-xl) 0;
     color: #FFFFFF;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    letter-spacing: -0.02em;
-    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    text-shadow: 0 6px 20px rgba(0, 0, 0, 0.8), 0 3px 8px rgba(0, 0, 0, 0.6);
+    letter-spacing: -0.03em;
   }
   
-  /* Tagline */
+  /* Tagline - Clean & Simple */
   .hero__tagline {
-    margin: 0 0 var(--space-2xl) 0;
+    margin: 0 0 var(--space-3xl) 0;
     color: rgba(255, 255, 255, 0.95);
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     font-weight: 400;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    animation: fadeInUp 0.8s ease-out 0.3s backwards;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.7);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
-  /* Features */
+  /* Features - Simpler Pills */
   .hero__features {
     display: flex;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     flex-wrap: wrap;
-    animation: fadeInUp 0.8s ease-out 0.5s backwards;
+    justify-content: center;
   }
   
   .feature {
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    color: rgba(255, 255, 255, 0.95);
+    color: #FFFFFF;
     font-size: 1rem;
     font-weight: 500;
-    padding: 0.5rem 0;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
   }
   
   .feature__icon {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
+    width: 24px;
+    height: 24px;
+    background: #34D399;
     border-radius: 50%;
     flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(52, 211, 153, 0.5);
   }
   
   .feature__icon svg {
-    color: #34D399;
-    filter: drop-shadow(0 0 4px rgba(52, 211, 153, 0.5));
+    color: #FFFFFF;
+    width: 14px;
+    height: 14px;
   }
   
-  /* Scroll Indicator - Centered */
-  .hero__scroll-indicator {
+  /* Rotating Product Logo Showcase - Bottom Center */
+  .hero__product-showcase {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: var(--space-2xl);
+  }
+  
+  .hero__product-logo {
     position: absolute;
-    bottom: var(--space-2xl);
-    left: 50%;
-    transform: translateX(-50%);
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s ease-in-out;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.6));
+  }
+  
+  .hero__product-logo.active {
+    opacity: 1;
+    transform: scale(1);
+    animation: productPulse 4s ease-in-out infinite;
+  }
+  
+  @keyframes productPulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Scroll Indicator */
+  .hero__scroll-indicator {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.875rem;
-    font-weight: 500;
     animation: bounce 2s infinite;
-    z-index: 10;
   }
   
   @keyframes bounce {
     0%, 100% {
-      transform: translateX(-50%) translateY(0);
+      transform: translateY(0);
     }
     50% {
-      transform: translateX(-50%) translateY(10px);
+      transform: translateY(10px);
     }
   }
   
   .hero__scroll-indicator svg {
     width: 20px;
     height: 20px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
   }
   
   /* Responsive Design */
   @media (max-width: 1200px) {
-    .hero__content {
-      width: 55%;
-      padding: var(--space-3xl) var(--space-xl);
+    .hero__title {
+      font-size: 3.5rem;
     }
     
-    .hero__overlay,
-    .hero__overlay-gradient {
-      width: 75%;
+    .hero__tagline {
+      font-size: 1.375rem;
+    }
+    
+    .hero__product-showcase {
+      max-width: 400px;
+      height: 200px;
     }
   }
   
@@ -274,35 +321,47 @@
     }
     
     .hero__container {
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-      padding: 0;
+      min-height: 650px;
+    }
+    
+    .hero__title {
+      font-size: 3rem;
+    }
+    
+    .hero__tagline {
+      font-size: 1.25rem;
+    }
+    
+    .hero__features {
+      gap: var(--space-md);
+    }
+    
+    .feature {
+      font-size: 0.9375rem;
+    }
+    
+    .hero__product-showcase {
+      max-width: 350px;
+      height: 180px;
+    }
+    
+    .hero__scroll-indicator {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 600px;
+    }
+    
+    .hero__container {
+      min-height: 600px;
+      padding: var(--space-2xl) var(--space-md);
     }
     
     .hero__content {
-      width: 65%;
-      max-width: none;
-      padding: var(--space-2xl) var(--space-lg);
-      background: transparent;
-    }
-    
-    .hero__overlay {
-      width: 85%;
-      height: 100%;
-      background: linear-gradient(
-        to right,
-        rgba(10, 61, 122, 0.97) 0%,
-        rgba(10, 61, 122, 0.95) 40%,
-        rgba(10, 61, 122, 0.6) 60%,
-        rgba(10, 61, 122, 0.2) 80%,
-        rgba(10, 61, 122, 0) 100%
-      );
-    }
-    
-    .hero__overlay-gradient {
-      width: 85%;
-      box-shadow: none;
+      margin-top: var(--space-2xl);
     }
     
     .hero__title {
@@ -314,55 +373,41 @@
     }
     
     .hero__features {
-      gap: var(--space-md);
+      flex-direction: column;
+      gap: var(--space-sm);
+      align-items: center;
     }
     
-    .feature {
-      font-size: 0.9375rem;
-    }
-    
-    .hero__scroll-indicator {
-      display: none;
+    .hero__product-showcase {
+      max-width: 300px;
+      height: 150px;
     }
   }
   
   @media (max-width: 640px) {
     .hero {
-      min-height: 600px;
+      min-height: 550px;
     }
     
-    .hero__content {
-      width: 70%;
-      padding: var(--space-xl) var(--space-md);
-    }
-    
-    .hero__overlay {
-      width: 90%;
-      background: linear-gradient(
-        to right,
-        rgba(10, 61, 122, 0.97) 0%,
-        rgba(10, 61, 122, 0.95) 35%,
-        rgba(10, 61, 122, 0.6) 55%,
-        rgba(10, 61, 122, 0.3) 75%,
-        rgba(10, 61, 122, 0) 100%
-      );
-    }
-    
-    .hero__overlay-gradient {
-      width: 90%;
+    .hero__container {
+      min-height: 550px;
     }
     
     .hero__title {
-      font-size: 1.75rem;
+      font-size: 2rem;
     }
     
     .hero__tagline {
-      font-size: 0.9375rem;
+      font-size: 1rem;
     }
     
-    .hero__features {
-      flex-direction: column;
-      gap: var(--space-sm);
+    .feature {
+      font-size: 0.875rem;
+    }
+    
+    .hero__product-showcase {
+      max-width: 250px;
+      height: 120px;
     }
   }
   
@@ -370,13 +415,13 @@
   @media (prefers-reduced-motion: reduce) {
     .hero__bg-image {
       transform: none !important;
+      filter: blur(3px) brightness(0.7);
     }
     
     .hero__content,
-    .hero__title,
-    .hero__tagline,
-    .hero__features {
-      animation: none;
+    .hero__product-logo {
+      animation: none !important;
+      transition: none;
     }
     
     .hero__scroll-indicator {
@@ -387,12 +432,11 @@
   /* High contrast mode support */
   @media (prefers-contrast: high) {
     .hero__overlay {
-      background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.95) 0%,
-        rgba(0, 0, 0, 0.90) 70%,
-        rgba(0, 0, 0, 0) 100%
-      );
+      background: rgba(0, 0, 0, 0.7);
+    }
+    
+    .hero__bg-image {
+      filter: blur(3px) brightness(0.5);
     }
   }
 </style>

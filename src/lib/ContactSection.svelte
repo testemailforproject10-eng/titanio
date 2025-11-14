@@ -7,8 +7,8 @@
     address: '123 Auto Supply Way, Detroit, MI 48201'
   }
   
-  export let title = 'Get In Touch'
-  export let subtitle = 'Ready to stock up? Contact us for quotes, orders, or questions'
+  export let title = 'Get Started'
+  export let subtitle = 'Ready to upgrade your shop or project? Browse our products or contact us for expert recommendations'
 </script>
 
 <section class="contact-section">

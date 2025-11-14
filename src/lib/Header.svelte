@@ -27,6 +27,13 @@
       </a>
     </div>
     
+    <!-- Navigation Menu -->
+    <nav class="nav">
+      <a href="/" use:link class="nav__link">Home</a>
+      <a href="/products" use:link class="nav__link">Products</a>
+      <a href="/gallery" use:link class="nav__link">Gallery</a>
+    </nav>
+    
     <div class="header__contact">
       <a href="tel:{contact.phone.replace(/\D/g, '')}" class="contact__link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -63,6 +70,27 @@
   <!-- Mobile Menu -->
   {#if mobileMenuOpen}
     <div class="mobile-menu">
+      <a href="/" use:link class="mobile-nav-link" on:click={() => mobileMenuOpen = false}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Home
+      </a>
+      <a href="/products" use:link class="mobile-nav-link" on:click={() => mobileMenuOpen = false}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Products
+      </a>
+      <a href="/gallery" use:link class="mobile-nav-link" on:click={() => mobileMenuOpen = false}>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+          <path d="M21 15l-5-5L5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Gallery
+      </a>
+      <hr class="mobile-divider" />
       <a href="tel:{contact.phone.replace(/\D/g, '')}" class="mobile-link">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
           <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -108,6 +136,42 @@
   .logo__img {
     height: 50px;
     width: auto;
+  }
+  
+  /* Navigation Menu */
+  .nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xl);
+  }
+  
+  .nav__link {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+  }
+  
+  .nav__link:hover {
+    color: var(--color-primary);
+  }
+  
+  .nav__link:hover::after {
+    width: 100%;
   }
   
   .header__contact {
@@ -177,6 +241,31 @@
     background: var(--color-bg-secondary);
   }
   
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    border-radius: var(--radius-button);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+  
+  .mobile-nav-link:hover {
+    background: var(--color-bg-primary);
+    color: var(--color-primary);
+  }
+  
+  .mobile-divider {
+    border: none;
+    border-top: 1px solid var(--color-border);
+    margin: var(--space-sm) 0;
+  }
+  
   .mobile-link {
     display: flex;
     align-items: center;
@@ -210,7 +299,11 @@
     color: #FFFFFF;
   }
   
-  @media (max-width: 768px) {
+  @media (max-width: 968px) {
+    .nav {
+      display: none;
+    }
+    
     .header__contact {
       display: none;
     }

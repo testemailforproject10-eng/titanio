@@ -2,8 +2,11 @@
   import Header from '../lib/Header.svelte'
   import PhoneBanner from '../lib/PhoneBanner.svelte'
   import Hero from '../lib/Hero.svelte'
+  import WhyTitanio from '../lib/WhyTitanio.svelte'
   import BrandsGrid from '../lib/BrandsGrid.svelte'
   import ProductCategoriesPreview from '../lib/ProductCategoriesPreview.svelte'
+  import GalleryPreview from '../lib/GalleryPreview.svelte'
+  import Testimonials from '../lib/Testimonials.svelte'
   import ContactSection from '../lib/ContactSection.svelte'
   import Footer from '../lib/Footer.svelte'
   
@@ -40,8 +43,9 @@
   // 🎯 HERO FEATURES
   // ============================================
   const heroFeatures = [
-    { text: 'Free Shipping $150+', icon: 'check' },
-    { text: 'Same-Day Shipping', icon: 'check' }
+    { text: 'Brand-name detailing products for professional-looking results', icon: 'check' },
+    { text: 'OEM color-matched paints for all makes and models', icon: 'check' },
+    { text: 'Easy-to-use touch-up kits, sprays, and finishes', icon: 'check' }
   ]
   
   // ============================================
@@ -50,10 +54,25 @@
   const brands = [
     { name: '3D', logo: './icons/3dIcon.png', category: 'Car Care Products' },
     { name: 'P & S', logo: './icons/P&SIcon.png', category: 'Professional Detailing' },
+    { name: 'ONYX Coating', logo: './icons/onyxCoatingIcon.png', category: 'Ceramic Coatings' },
     { name: 'Ultra Clean Chemicals', logo: './icons/ultraCleanIcon.png', category: 'Cleaning Solutions' },
     { name: '3M', logo: './icons/3MIcon.png', category: 'Abrasives & Tapes' },
     { name: 'Rupes', logo: './icons/rupesIcon.png', category: 'Polishing Tools' },
     { name: 'Max Shine', logo: './icons/maxShineIcon.png', category: 'Detailing Accessories' },
+    { name: "Meguiar's", logo: './icons/meguiarsIcon.png', category: 'Premium Car Care' },
+    { name: 'NorthStar', logo: './icons/northStarIcon.png', category: 'Industrial Solutions' },
+    { name: 'GlobalStar Industrial', logo: './icons/globalStarIcon.png', category: 'Industrial Products' },
+    { name: 'GreenTec', logo: './icons/greenTecIcon.png', category: 'Eco-Friendly Solutions' },
+    { name: 'General', logo: './icons/generalIcon.png', category: 'Automotive Products' },
+    { name: 'Bio-Bombs', logo: './icons/bioBombsIcon.png', category: 'Odor Removal' },
+    { name: 'Mytee', logo: './icons/myteeIcon.png', category: 'Automotive Detailing' },
+    { name: 'SEM', logo: './icons/semIcon.png', category: 'Automotive Refinishing' },
+    { name: 'Lake Country', logo: './icons/lakeCountryIcon.png', category: 'Detailing Tools' },
+    { name: 'High Teck', logo: './icons/highTeckIcon.png', category: 'Collision Repair' },
+    { name: 'Starcke', logo: './icons/starckeIcon.png', category: 'Abrasives' },
+    { name: 'SATA', logo: './icons/sataIcon.png', category: 'Spray Equipment' },
+    { name: 'Evercoat', logo: './icons/evercoatIcon.png', category: 'Body Fillers & Resins' },
+    { name: 'Presta', logo: './icons/prestaIcon.png', category: 'Surface Preparation' },
   ]
   
   // ============================================
@@ -61,35 +80,35 @@
   // ============================================
   const categories = [
     {
-      title: 'Body Shop Supplies',
-      description: 'Professional-grade paints, primers, and finishing products',
+      title: 'OEM Paints & Touch-Ups',
+      description: 'Factory-matched OEM colors for cars, trucks, motorcycles, and fleets',
       icon: 'spray',
-      items: ['Paints & Primers', 'Clear Coats', 'Body Fillers', 'Sanders & Tools']
+      items: ['Touch-Up Bottles', 'Aerosol Spray Cans', 'Pints & Quarts', 'Complete Kits', 'Computerized Color Matching']
     },
     {
-      title: 'Detailing Products',
-      description: 'Premium car care products for professional results',
+      title: 'Detailing & Accessories',
+      description: 'Brand-name detailing products for professional results',
       icon: 'polish',
-      items: ['Polishes & Compounds', 'Waxes & Sealants', 'Interior Care', 'Ceramic Coatings']
+      items: ['Professional Detailing Products', 'Primers & Clear Coats', 'Reducers & Body Fillers', 'Sandpaper & Abrasives']
     },
     {
       title: 'Tools & Equipment',
-      description: 'Professional tools and equipment for every job',
+      description: 'Professional tools to complete your project',
       icon: 'tools',
-      items: ['Polishers & Buffers', 'Air Tools', 'Paint Guns', 'Safety Equipment']
+      items: ['HVLP Spray Guns', 'Polishers & Buffers', 'Sanders & Tools', 'Safety Equipment']
     },
     {
-      title: 'Chemicals & Cleaners',
-      description: 'Industrial-strength chemicals and cleaning solutions',
+      title: 'Auto Body Supplies',
+      description: 'Complete range of body repair and finishing supplies',
       icon: 'chemical',
-      items: ['Degreasers', 'All-Purpose Cleaners', 'Glass Cleaners', 'Tire & Wheel Care']
+      items: ['Body Fillers', 'Primers', 'Clear Coats', 'Reducers', 'Finishing Products']
     }
   ]
 </script>
 
 <svelte:head>
-  <title>Titanio Automotive Supplies - Professional Auto Body & Detailing Products</title>
-  <meta name="description" content="Professional-grade automotive supplies for body shops, detailers, and fleet managers. Free shipping on orders $150+." />
+  <title>Titanio Automotive Supplies - High-Quality Car Paints & Detailing Supplies</title>
+  <meta name="description" content="Your trusted store for OEM color-matched paints and brand-name detailing products. 44 years of combined experience. Quality, precision, and convenience at friendly prices." />
 </svelte:head>
 
 <div class="home-page">
@@ -98,8 +117,11 @@
   
   <main>
     <Hero features={heroFeatures} />
+    <WhyTitanio />
     <BrandsGrid {brands} />
-    <ProductCategoriesPreview {categories} />
+    <ProductCategoriesPreview {categories} title="What We Offer" subtitle="OEM paints, detailing products, and professional supplies" />
+    <GalleryPreview />
+    <Testimonials />
     <ContactSection {contact} />
   </main>
   

@@ -1,22 +1,40 @@
 <script>
   const testimonials = [
     {
-      quote: "Titanio's products have transformed our shop's efficiency. The quality is unmatched and delivery is always on time.",
-      author: "Mike Rodriguez",
-      title: "Owner, Rodriguez Auto Body",
-      location: "Dallas, TX"
+      quote: "I recently had the pleasure of interacting with Bella at your customer service department, and I must say, it was an exceptional experience. Bella was incredibly attentive, patient, and went above and beyond to address my concerns. Her professionalism and friendly demeanor made the entire process seamless and enjoyable.",
+      author: "Priscila Velazquez",
+      title: "Google Review",
+      location: "6 months ago"
     },
     {
-      quote: "We've been using Titanio for 5 years. Their ceramic coatings deliver results our clients love, every single time.",
-      author: "Sarah Chen",
-      title: "Lead Detailer, Shine Masters",
-      location: "Los Angeles, CA"
+      quote: "Super helpful and always has what I need in stock from mixing touch up paint, having the correct pads and backing plates. Very satisfied with the store.",
+      author: "Kobe Arriaga",
+      title: "Google Review",
+      location: "A year ago"
     },
     {
-      quote: "The Net 30 terms and bulk pricing make managing our fleet maintenance so much easier. Highly recommended.",
-      author: "James Wilson",
-      title: "Fleet Manager, Metro Transport",
-      location: "Chicago, IL"
+      quote: "First day over here. Shop is great, nice staff, and fair pricing. Happy to work with Titanio automotive supplies, Nate's Detailz will be back!",
+      author: "Nate's Detailz",
+      title: "Google Review",
+      location: "A month ago"
+    },
+    {
+      quote: "Amazing customer service, only high quality products for high quality results. Highly recommend, will be coming again.",
+      author: "Luis Sanchez",
+      title: "Google Review",
+      location: "A year ago"
+    },
+    {
+      quote: "Local detail products very helpful and informative very friendly and helpful. Best place if in need of products and uses the best of the best.",
+      author: "Justin Suarez",
+      title: "Google Review",
+      location: "A year ago"
+    },
+    {
+      quote: "Very good customer service I come in every other week to get stuff. Very affordable will definitely come everytime for my detailing needs!",
+      author: "Dominique Donsen",
+      title: "Google Review",
+      location: "6 months ago"
     }
   ]
 </script>
@@ -24,8 +42,8 @@
 <section class="testimonials">
   <div class="testimonials__inner">
     <div class="section-header">
-      <h2>Trusted by Professionals</h2>
-      <p class="subtitle">Join 5,000+ shops across North America</p>
+      <h2>Built on Word-of-Mouth</h2>
+      <p class="subtitle">Real reviews from real customers on Google</p>
     </div>
     
     <div class="testimonials-grid">
@@ -116,6 +134,7 @@
     line-height: 1.7;
     color: var(--color-text-primary);
     font-style: italic;
+    flex: 1;
   }
   
   .author {
@@ -124,6 +143,7 @@
     align-items: center;
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border);
+    margin-top: auto;
   }
   
   .author__avatar {
