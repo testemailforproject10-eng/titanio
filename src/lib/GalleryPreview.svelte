@@ -191,7 +191,6 @@
     }
     
     .view-all-btn {
-      width: 100%;
       justify-content: center;
     }
   }
