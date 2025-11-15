@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Home Page - Highest Priority -->
+  <!-- Main Page - All content is client-side routed via hash -->
   <url>
     <loc>https://titanioautosupplies.com/</loc>
     <lastmod>2025-11-15</lastmod>
@@ -8,28 +8,9 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- Products Page -->
-  <url>
-    <loc>https://titanioautosupplies.com/products</loc>
-    <lastmod>2025-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Gallery Page -->
-  <url>
-    <loc>https://titanioautosupplies.com/gallery</loc>
-    <lastmod>2025-11-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- About Page (if exists) -->
-  <url>
-    <loc>https://titanioautosupplies.com/about</loc>
-    <lastmod>2025-11-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <!-- Hash routes for reference (not crawlable by search engines) -->
+  <!-- #/products - Products page -->
+  <!-- #/gallery - Gallery page -->
+  <!-- All content is accessible from the main page -->
 </urlset>
 
