@@ -8,6 +8,9 @@
 </script>
 
 <svelte:head>
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="zjSdxnIEyS53Fvri6P3onOh2jrVOZ5cKgQG8Gm-6OAU" />
+  
   <!-- Primary Meta Tags -->
   <title>{title}</title>
   <meta name="title" content={title} />
