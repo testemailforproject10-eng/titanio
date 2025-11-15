@@ -281,16 +281,27 @@
     }
     
     .brands-grid {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: var(--space-md);
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-sm);
     }
     
     .brand-card {
-      padding: var(--space-lg);
+      padding: var(--space-md);
+    }
+    
+    .brand-logo {
+      height: 60px;
+    }
+    
+    .brand-name {
+      font-size: 0.9375rem;
+    }
+    
+    .brand-category {
+      font-size: 0.8125rem;
     }
     
     .view-all-btn {
-      width: 100%;
       justify-content: center;
     }
     

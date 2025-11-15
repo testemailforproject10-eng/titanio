@@ -1,4 +1,5 @@
 <script>
+  import SEO from '../lib/SEO.svelte'
   import Header from '../lib/Header.svelte'
   import Footer from '../lib/Footer.svelte'
   import { galleryImages } from '../data/galleryImages.js'
@@ -50,10 +51,13 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<svelte:head>
-  <title>Gallery - Titanio Automotive Supplies</title>
-  <meta name="description" content="Browse our gallery showcasing professional automotive detailing and paint work. See the quality results we deliver." />
-</svelte:head>
+<SEO 
+  title="Gallery - Titanio Automotive Supplies | Professional Detailing & Paint Work"
+  description="Browse our gallery showcasing professional automotive detailing and paint work. See the quality results we deliver with OEM paints, ceramic coatings, and expert detailing."
+  keywords="automotive gallery, car detailing photos, paint work examples, before after detailing, ceramic coating results, professional car care, auto body work gallery"
+  url="https://titanioautosupplies.com/gallery"
+  image="https://titanioautosupplies.com/gallery/image1.png"
+/>
 
 <div class="gallery-page">
   <Header {contact} />

@@ -1,8 +1,10 @@
 <script>
+  import SEO from '../lib/SEO.svelte'
   import Header from '../lib/Header.svelte'
   import PhoneBanner from '../lib/PhoneBanner.svelte'
   import Hero from '../lib/Hero.svelte'
   import WhyTitanio from '../lib/WhyTitanio.svelte'
+  import HowWeHelp from '../lib/HowWeHelp.svelte'
   import BrandsGrid from '../lib/BrandsGrid.svelte'
   import ProductCategoriesPreview from '../lib/ProductCategoriesPreview.svelte'
   import GalleryPreview from '../lib/GalleryPreview.svelte'
@@ -106,10 +108,12 @@
   ]
 </script>
 
-<svelte:head>
-  <title>Titanio Automotive Supplies - High-Quality Car Paints & Detailing Supplies</title>
-  <meta name="description" content="Your trusted store for OEM color-matched paints and brand-name detailing products. 44 years of combined experience. Quality, precision, and convenience at friendly prices." />
-</svelte:head>
+<SEO 
+  title="Titanio Automotive Supplies - High-Quality Car Paints & Detailing Supplies"
+  description="Your trusted store for OEM color-matched paints and brand-name detailing products. 44 years of combined experience. Quality, precision, and convenience at friendly prices."
+  keywords="automotive paints, car detailing supplies, OEM paints, touch-up paint, auto body supplies, ceramic coatings, 3M products, Meguiars, Rupes, professional detailing, car care products, paint matching, automotive refinishing, Detroit auto supplies"
+  url="https://titanioautosupplies.com"
+/>
 
 <div class="home-page">
   <Header {contact} />
