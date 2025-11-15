@@ -11,6 +11,22 @@
   </head>
   <body>
     <div id="app"></div>
+    <script>
+      // GitHub Pages SPA redirect handler
+      // Check if we were redirected from a 404
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          // Convert the URL to hash format for our hash router
+          var url = new URL(redirect);
+          if (url.pathname !== '/' && url.pathname !== '') {
+            // Redirect to hash-based route
+            history.replaceState(null, null, '/#' + url.pathname);
+          }
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
