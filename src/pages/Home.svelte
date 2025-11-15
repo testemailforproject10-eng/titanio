@@ -112,7 +112,7 @@
   title="Titanio Automotive Supplies - High-Quality Car Paints & Detailing Supplies"
   description="Your trusted store for OEM color-matched paints and brand-name detailing products. 44 years of combined experience. Quality, precision, and convenience at friendly prices."
   keywords="automotive paints, car detailing supplies, OEM paints, touch-up paint, auto body supplies, ceramic coatings, 3M products, Meguiars, Rupes, professional detailing, car care products, paint matching, automotive refinishing, Detroit auto supplies"
-  url="https://titanioautosupplies.com"
+  url="https://titanioautomotivesupplies.com"
 />
 
 <div class="home-page">

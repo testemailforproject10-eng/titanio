@@ -23,7 +23,7 @@
   title="Products - Titanio Automotive Supplies | OEM Paints, Detailing & Auto Body Supplies"
   description="Shop professional automotive products including OEM paints, detailing supplies, ceramic coatings, 3M products, Meguiars, and more. Online catalog coming soon. Contact us for product information."
   keywords="automotive products, OEM paints, detailing supplies, ceramic coatings, 3M automotive, Meguiars products, Rupes polishers, auto body supplies, professional car care, paint matching services"
-  url="https://titanioautosupplies.com/products"
+  url="https://titanioautomotivesupplies.com/products"
 />
 
 <div class="products-page">

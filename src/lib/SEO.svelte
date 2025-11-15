@@ -2,8 +2,8 @@
   export let title = 'Titanio Automotive Supplies - High-Quality Car Paints & Detailing Supplies'
   export let description = 'Your trusted store for OEM color-matched paints and brand-name detailing products. 44 years of combined experience. Quality, precision, and convenience at friendly prices.'
   export let keywords = 'automotive paints, car detailing supplies, OEM paints, touch-up paint, auto body supplies, ceramic coatings, 3M products, Meguiars, professional detailing, car care products, paint matching, automotive refinishing'
-  export let image = 'https://titanioautosupplies.com/hero-banner.jpg'
-  export let url = 'https://titanioautosupplies.com'
+  export let image = 'https://titanioautomotivesupplies.com/hero-banner.jpg'
+  export let url = 'https://titanioautomotivesupplies.com'
   export let type = 'website'
 </script>
 

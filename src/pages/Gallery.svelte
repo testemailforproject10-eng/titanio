@@ -55,8 +55,8 @@
   title="Gallery - Titanio Automotive Supplies | Professional Detailing & Paint Work"
   description="Browse our gallery showcasing professional automotive detailing and paint work. See the quality results we deliver with OEM paints, ceramic coatings, and expert detailing."
   keywords="automotive gallery, car detailing photos, paint work examples, before after detailing, ceramic coating results, professional car care, auto body work gallery"
-  url="https://titanioautosupplies.com/gallery"
-  image="https://titanioautosupplies.com/gallery/image1.png"
+  url="https://titanioautomotivesupplies.com/gallery"
+  image="https://titanioautomotivesupplies.com/gallery/image1.png"
 />
 
 <div class="gallery-page">
