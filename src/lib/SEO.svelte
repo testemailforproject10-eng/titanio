@@ -9,7 +9,7 @@
 
 <svelte:head>
   <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="zjSdxnIEyS53Fvri6P3onOh2jrVOZ5cKgQG8Gm-6OAU" />
+  <meta name="google-site-verification" content="5doydKxs-zKGruKC8DRWWaBcCzWMUlCrJNaBvrYgfF4" />
   
   <!-- Primary Meta Tags -->
   <title>{title}</title>
