@@ -30,8 +30,6 @@ jobs:
       
       - name: Prepare docs folder
         run: |
-          rm -rf docs
-          cp -r dist docs
           touch docs/.nojekyll
       
       - name: Commit and push to docs
